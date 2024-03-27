@@ -27,5 +27,12 @@ public class Aims {
         System.out.println("Total cost is: ");
         System.out.println(anOrder.totalCost());
         
+        // Test for existing disc
+        DigitalVideoDisc existDVD = dvd2;
+        anOrder.removeDigitalVideoDisc(existDVD);
+
+        // Test for non-exist disc
+        DigitalVideoDisc nonEDVD = new DigitalVideoDisc("Start War", "Science Fic", "George", 8, 24.9f);
+        anOrder.removeDigitalVideoDisc(nonEDVD);
     }
 }
