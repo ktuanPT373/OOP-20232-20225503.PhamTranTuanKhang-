@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author khangpt
- */
 public class DigitalVideoDisc {
     private String title;
     private String category;
@@ -48,7 +39,23 @@ public class DigitalVideoDisc {
     public float getCost() {
         return cost;
     }
-
+    public DigitalVideoDisc(String title){
+        super();
+        this.title = title;
+    }
+    public DigitalVideoDisc(String category, String title, float cost){
+        super();
+        this.category = category;
+        this.title = title;
+        this.cost = cost;
+    }
+    public DigitalVideoDisc(String director, String category, String title, float cost){
+        super();
+        this.director = director;
+        this.category = category;
+        this.title = title;
+        this.cost = cost;
+    }
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
         super();
         this.title = title;
@@ -57,8 +64,4 @@ public class DigitalVideoDisc {
         this.length = length;
         this.cost = cost;
     }
-    public DigitalVideoDisc(String title, String category, float cost) {
-        this(title, category, "Unknown", 0, cost);  // Call the full constructor with defaults
-    }
-    
 }
