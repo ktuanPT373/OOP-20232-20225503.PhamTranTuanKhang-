@@ -13,42 +13,57 @@ public class DigitalVideoDisc {
     private String director;
     private int length;
     private float cost;
+    private static int nbDigitalVideoDiscs = 0;
+	private int id;
 
-    /**
-     * @return the title
-     */
     public String getTitle() {
         return title;
     }
 
-    /**
-     * @return the category
-     */
-    public String getCategory() {
-        return category;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getDirectory() {
+		return director;
+	}
+	public void setDirectory(String director) {
+		this.director = director;
+	}
+	public int getLength() {
+		return length;
+	}
+	public void setLength(int length) {
+		this.length = length;
+	}
+	public float getCost() {
+		return cost;
+	}
+	public void setCost(float cost) {
+		this.cost = cost;
+	}
+    public DigitalVideoDisc(String title){
+        super();
+        this.title = title;
     }
-
-    /**
-     * @return the director
-     */
-    public String getDirector() {
-        return director;
+    public DigitalVideoDisc(String category, String title, float cost){
+        super();
+        this.category = category;
+        this.title = title;
+        this.cost = cost;
     }
-
-    /**
-     * @return the length
-     */
-    public int getLength() {
-        return length;
+    public DigitalVideoDisc(String director, String category, String title, float cost){
+        super();
+        this.director = director;
+        this.category = category;
+        this.title = title;
+        this.cost = cost;
     }
-
-    /**
-     * @return the cost
-     */
-    public float getCost() {
-        return cost;
-    }
-
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
         super();
         this.title = title;
@@ -57,8 +72,23 @@ public class DigitalVideoDisc {
         this.length = length;
         this.cost = cost;
     }
-    public DigitalVideoDisc(String title, String category, float cost) {
-        this(title, category, "Unknown", 0, cost);  // Call the full constructor with defaults
+    public static int getNbDigitalVideoDiscs() {
+        return nbDigitalVideoDiscs;
     }
-    
+	public int getId() {
+        return id;
+    }
+	public DigitalVideoDisc(String title, String category, String director, int length, float cost,int id) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.director = director;
+		this.length = length;
+		this.cost = cost;
+		
+		nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
+	}
+
 }
+
