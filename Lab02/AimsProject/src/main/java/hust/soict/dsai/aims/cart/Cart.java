@@ -14,7 +14,7 @@ public class Cart {
     
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-    private int qtyOrdered;
+    private int qtyOrdered;    
     
     public void addDigitalVideoDisc(DigitalVideoDisc disc){
         if (qtyOrdered < MAX_NUMBERS_ORDERED){
@@ -55,4 +55,30 @@ public class Cart {
         }
         return total;
     }
+    public void print(){
+        System.out.println("*********************CART**********************");
+        for (int i = 0; i < qtyOrdered;i++){
+            System.out.println((i+1)+" ");
+            System.out.println(itemsOrdered[i].toString());
+        }
+        System.out.println("Total cost: "+ totalCost());
+        System.out.println("***********************************************");
+    }
+    public void SearchByTitle(String title) {
+        int count = 0;
+        for (DigitalVideoDisc disc: itemsOrdered) {
+            if (disc.isMatch(title)){
+                System.out.println(disc.toString());
+                count++;
+            }
+        }
+        if (count==0) {
+            System.out.println("No item found in the cart !");
+        } else{
+            System.out.println("---------------------------");
+            System.out.println("Total found items: "+count);
+        }
+           
+    }
+    
 }

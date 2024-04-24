@@ -4,6 +4,8 @@
  */
 package hust.soict.dsai.aims.disc;
 
+import java.util.StringTokenizer;
+
 /**
  *
  * @author khangpt
@@ -90,6 +92,18 @@ public class DigitalVideoDisc {
 		nbDigitalVideoDiscs++;
         this.id = nbDigitalVideoDiscs;
 	}
-
+	//==========Add To String===========
+	public String ToString() {
+		return "DVD - " + getTitle() + " - " + getCategory() + " - " + this.director + " - " + this.length + " : "+getCost();
+        }
+        public boolean isMatch(String title){
+            StringTokenizer str_token = new StringTokenizer(title);
+            for (int i = 1; str_token.hasMoreTokens();i++) {
+                if (getTitle().toUpperCase().contains(str_token.nextToken().toUpperCase())){
+                    return true;
+                }
+            }
+            return false;
+        }
 }
 
