@@ -5,6 +5,7 @@
 package hust.soict.dsai.aims.cart;
 
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.Playable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,6 +75,16 @@ public class Cart {
 			System.out.println("No matching DVD with title " + title + " is found in cart");
 		}
 		return matchingMedia;
+        }
+	public Media searchById(int id) {
+		for (Media medium: itemsOrdered) {
+			if (medium.getId() == id) {
+				System.out.println("Succecssfully found medium with id " + id + " in cart");
+				return medium;
+			}
+		}
+		System.out.println("No matching medium with id " + id + " is found in cart");
+		return null;
 	}
         public boolean checkTitleValidation(String title) {
             int count = 0;
@@ -108,6 +119,15 @@ public class Cart {
 		
 		return Math.round(cost * 100.0f) / 100.0f;
 	}
+        public void playMedia(String title) {
+            for (Media m : this.itemsOrdered) {
+                if (m.getTitle().equals(title)) {
+                    if (Playable.class.isAssignableFrom(m.getClass())) {
+                        ((Playable) m).play();
+                    }
+                }
+            }
+        }
 	
 	public void print() {
 		
@@ -121,5 +141,5 @@ public class Cart {
 		System.out.println("Total cost: " + this.totalCost() + " $");
 		System.out.println("********************************************");
 	}
-    
+       
 }
