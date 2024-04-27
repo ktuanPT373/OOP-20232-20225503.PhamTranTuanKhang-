@@ -1,0 +1,43 @@
+Reading Assignment:
+
+Q1. What are the advantages of Polymorphism ?
+- Polymorphism allows us to reuse the code efficiently.
+- It allows us to handle objects in different ways based on their data class of types.
+- It reduces the amount of code we need to write and maintain, when we have multiple classes sharing a common interface,
+we can treat them uniformly (which also increases code readabiity)
+
+Q2. How is Inheritance useful to achieve Polymorphism in Java ?
+
+- Inheritance in Java allows child classes to inherit fields and methods from parent classes. It facillitates method 
+overriding, which is essential for achieving Polymorphism. By reusing code and creating class hierarchies, inheritance 
+enhances flexibility and maintainability.
+
+Q3. What are the differences between Polymorphism and Inheritance in Java ?
+- Briefly describing, Inheritance creates class in hierarchial way, it support reusability, while 
+Polymorphism allows multiple forms of a function, it decides function implementation at compile-time. In essence, 
+inheritance probides the foundation for polymorphism. While inheritance focuses on class relationships and code reuse,
+polymorphism adds dynamic behaviour to out code.
+
+
+QUESTION : About comparable interface.
+
+1. What class should implement the Comparable interface?
+-> The class Media (the only interface). So that an instance of class Media can compare itself to other Media instances.
+
+2. In those classes, how should you implement the compareTo()method be to reflect the ordering that we
+want?
+-> First, we compare the values of the most important field (e.g., title). If the titles are identical (meaning compareTo 
+returns 0), we move on to the secondary field (e.g., cost) and return the comparison result for that field. However, if 
+the titles are not the same (meaning compareTo doesn't return 0),then the difference in titles determines the sorting 
+order, and we return that comparison result directly.
+
+3. Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this
+Comparable interface approach?
+-> No. Because we can override compareTo() only once, there is no way to implement 2 ordering rules at the same time.
+
+4.  Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing
+length, then cost. How would you modify your code to allow this?
+-> To sort media objects, we can adjust the compare() method in both MediaComparatorByCostTitle and MediaComparatorByTitleCost.  
+These methods should first check if the objects being compared are specifically DigitalVideoDisc instances. If they are
+DVDs, a special comparison rule for DVDs should be used. Otherwise, the regular comparison rules for generic 
+media objects should apply.
