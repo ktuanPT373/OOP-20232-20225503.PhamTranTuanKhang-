@@ -1,6 +1,0 @@
-Question : When should accessors methods be used.
-
-Accessor methods should be used when you need to retrieve the values of private fields in a class from outside the class.
-They provide controlled access to the fields by returning their values, allowing encapsulation and maintaining the principle of data hiding.
-Accessor methods help in implementing the concept of encapsulation, enhancing the security and maintainability of the codebase. 
-Moreover, they enable the class to expose only the necessary information to external users while keeping the internal implementation details hidden.
