@@ -10,6 +10,8 @@ package hust.soict.dsai.aims.store;
  * @author khangpt
  */
 import java.util.ArrayList;
+
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
 public class Store {
@@ -57,15 +59,15 @@ public class Store {
                     System.out.println(medium);
             }
 	}     
-        public void playMedia(String title) {
-            for (Media m : this.itemsInStore) {
-                if (m.getTitle().equals(title)) {
-                    if (Playable.class.isAssignableFrom(m.getClass())) {
-                        ((Playable) m).play();
-                    }
+    public void playMedia(String title) throws PlayerException {
+        for (Media m : this.itemsInStore) {
+            if (m.getTitle().equals(title)) {
+                if (Playable.class.isAssignableFrom(m.getClass())) {
+                    ((Playable) m).play();
                 }
             }
         }
-	
+    }
+
 	
 }
