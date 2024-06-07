@@ -8,7 +8,8 @@ package hust.soict.dsai.aims.media;
  *
  * @author khangpt
  */
+import hust.soict.dsai.aims.exception.PlayerException;
 public interface Playable {
-	public void play();
-	public String getInfo();
+	public void play() throws PlayerException;
+	public String getInfo() throws PlayerException;
 }

@@ -1,8 +1,10 @@
 package hust.soict.dsai.test.cart;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.exception.FullCartException;
+
 public class CartTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FullCartException {
 		//Create new cart
 		Cart cart = new Cart();
 		
